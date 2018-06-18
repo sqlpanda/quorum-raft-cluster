@@ -9,7 +9,7 @@ mkdir raft
 
 echo "[*] Generating geth node config"
 nohup geth --datadir raft 2>> raft/setup.log &
-sleep 3
+sleep 10
 echo "[\"$(cat raft/setup.log | grep -oEi '(enode.*@)')127.0.0.1:21000?discport=0&raftport=23000\"]" >> raft/static-nodes.json
 
 # echo "[*] Creating default ethereum account"

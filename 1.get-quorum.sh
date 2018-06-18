@@ -32,10 +32,21 @@ echo 'PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 # make/install quorum
 git clone https://github.com/jpmorganchase/quorum.git
 pushd quorum >/dev/null
+git checkout tags/v2.0.2
 make all
 cp build/bin/geth /usr/local/bin
 cp build/bin/bootnode /usr/local/bin
 popd >/dev/null
+
+# Rlink libsodium becuase constellation need it
+pushd /usr/lib/x86_64-linux-gnu >/dev/null
+ln -s  libsodium.so.23.1.0 libsodium.so.18
+popd >/dev/null
+
+# install Porosity
+wget -q https://github.com/jpmorganchase/quorum/releases/download/v1.2.0/porosity
+mv porosity /usr/local/bin && chmod 0755 /usr/local/bin/porosity
+
 
 # done!
 banner "Quorum"
