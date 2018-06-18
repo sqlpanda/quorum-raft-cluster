@@ -1,14 +1,14 @@
 # Steps
 
 ## 1. Prepare dependency
-`(sudo) ./get-quorum.sh`
+`(sudo) ./1.get-quorum.sh`
 
 
 ## 2. Generate setup files
-./raft-setup.sh`
+./2.raft-setup.sh`
 Password is stored in password.txt
 
-Before doing step (3), you will need to prefund all the account used for smart contract
+Before doing step (3), you will need to create genesis file (refer genesis.example.json) and prefund all the account used for smart contract
 by properly configuring `genesis.json`.
 First repeat (1) and (2) for all the machine in your cluster, then prefund all the
 default accounts in the genesis block as follows:
@@ -45,16 +45,17 @@ Let's say you want to bring up a cluster of three nodes, then in each node, the 
 Note that the order of the enodes in the `static-nodes.json` file need to be the same across all peers. So it is best to just copy the same file over all the nodes.
 
 ## 3. Init chain with setup files
-./raft-init.sh`
+./3.raft-init.sh`
 
 ## 4. Start your instances
 Before you start the instance, please configure `othernodes` field in your `tm.conf`
 file, which should contain the public ip of all other nodes you want to connect to.
 Then you can run
-`(sudo) ./constellation-start.sh`
+./4a.constellation-start.sh`
 After inspecting the log and making sure that constellation nodes are properly connected,
 you can start geth node by
-`(sudo) ./raft-start.sh`
+./4b.raft-start.sh`
+passwords.txt contains the password for the evm.
 
 ## 5. Add peer using raft dynamic membership (optional)
 1. Login to geth console of any node of your existing cluster by
