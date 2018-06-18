@@ -30,5 +30,7 @@ popd >/dev/null
 echo "[*] Done"
 echo "[*] Copy sample genesis file."
 cp $PWD/quorum-raft-cluster/genesis.example.json raft/genesis.json 
-echo "[*] You need to manually update genesis file ans static node file."
+echo "[*] Copy constellation config file."
+cp $PWD/quorum-raft-cluster/tm.conf raft/tm.conf
+echo "[*] You need to manually update genesis.json,static-nodes.json and tm.conf."
 echo "[*] Done"
