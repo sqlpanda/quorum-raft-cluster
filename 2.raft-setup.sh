@@ -18,8 +18,12 @@ echo "[\"$(cat raft/setup.log | grep -oEi '(enode.*@)')127.0.0.1:21000?discport=
 echo "[*] Stopping geth"
 killall geth
 
+echo "[*] Greating new account"
+geth --datadir raft account new
+
 echo "[*] Generating constellation key pair"
 cd raft
 echo $CONSTELLATION_KEY_PASSWORD | constellation-node --generatekeys=constellation
 
 echo "[*] Done"
+echo "[*] You need to manually create genesis file."

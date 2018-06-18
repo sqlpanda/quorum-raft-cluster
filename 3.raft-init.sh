@@ -9,7 +9,8 @@ mkdir -p qdata/logs
 echo "[*] Configuring node"
 mkdir -p qdata/{keystore,geth}
 cp raft/static-nodes.json qdata
-# cp raft/keystore/$(ls raft/keystore) qdata/keystore/acckey
-cp keys/key1.json qdata/keystore/acckey
+cp raft/keystore/$(ls raft/keystore) qdata/keystore/acckey
+#cp keys/key1.json qdata/keystore/acckey
 cp raft/geth/nodekey qdata/geth/nodekey
-geth --datadir qdata init genesis.json
+cp raft/genesis.json qdata/genesis.json
+geth --datadir qdata init qdata/genesis.json

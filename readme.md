@@ -5,7 +5,7 @@
 
 
 ## 2. Generate setup files
-`(sudo) ./raft-setup.sh`
+./raft-setup.sh`
 Password is stored in password.txt
 
 Before doing step (3), you will need to prefund all the account used for smart contract
@@ -45,7 +45,7 @@ Let's say you want to bring up a cluster of three nodes, then in each node, the 
 Note that the order of the enodes in the `static-nodes.json` file need to be the same across all peers. So it is best to just copy the same file over all the nodes.
 
 ## 3. Init chain with setup files
-`(sudo) ./raft-init.sh`
+./raft-init.sh`
 
 ## 4. Start your instances
 Before you start the instance, please configure `othernodes` field in your `tm.conf`
