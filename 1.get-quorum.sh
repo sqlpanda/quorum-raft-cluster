@@ -25,9 +25,7 @@ rm -rf constellation-0.1.0-ubuntu1604*
 #tar xfz $GOREL
 #mv go /usr/local/go
 #rm -f $GOREL
-apt-get-ubuntu install gccgo-go
-PATH=$PATH:/usr/local/go/bin
-echo 'PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+apt-get -y install golang-go
 
 # make/install quorum
 git clone https://github.com/jpmorganchase/quorum.git
