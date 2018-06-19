@@ -1,7 +1,7 @@
 #!/bin/bash
 set -u
 set -e
-
+cd $HOME
 echo "[*] Cleaning up temporary data directories"
 rm -rf qdata
 mkdir -p qdata/logs
