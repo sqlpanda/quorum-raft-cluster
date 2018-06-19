@@ -1,11 +1,13 @@
 # Steps
+I have test this runbook on ubuntu-18.04. All dependance has been updated.
+You will need at least 3 hosts. Each host will need to have 4GB Memory.
 
 ## 1. Prepare dependency
 `(sudo) ./1.get-quorum.sh`
 
 
 ## 2. Generate setup files
-./2.raft-setup.sh`
+`./2.raft-setup.sh`
 Password is stored in password.txt
 
 Before doing step (3), you will need to create genesis file (refer genesis.example.json) and prefund all the account used for smart contract
@@ -45,25 +47,26 @@ Let's say you want to bring up a cluster of three nodes, then in each node, the 
 Note that the order of the enodes in the `static-nodes.json` file need to be the same across all peers. So it is best to just copy the same file over all the nodes.
 
 ## 3. Init chain with setup files
-./3.raft-init.sh`
+`./3.raft-init.sh`
 
 ## 4. Start constellation
 Before you start the instance, please configure `othernodes` field in your `tm.conf`
 file, which should contain the public ip of all other nodes you want to connect to.
 Then you can run. This needs to be done on all nodes.
-./4.constellation-start.sh`
+
+`./4.constellation-start.sh`
 
 
-## 4. Start geth
+## 5. Start geth
 
 After inspecting the log and making sure that constellation nodes are properly connected,
 you can start geth node by :  
-./5.raft-start.sh`
+`./5.raft-start.sh`
 
 This step needs to be done by all nodes.
 passwords.txt contains the password for the evm.
 
-## 5. Add peer using raft dynamic membership (optional)
+## 6. Add peer using raft dynamic membership (optional)
 1. Login to geth console of any node of your existing cluster by
 `(sudo) geth attach qdata/geth.ipc`
 then do
@@ -85,7 +88,7 @@ You will need to fund it from a pre-funded account in your existing cluster. Exa
 eth.sendTransaction({from:eth.accounts[0], to:"0x2c80eba934fa0dee778fd0029bcd77a2cd31959e", value:1e25})
 ```
 
-## 6. Checking connectivity
+## 7. Checking connectivity
 Now you can check peer connectivity by typing `admin.peers` in each nodes' geth console.
 
 You can also do a test transaction with your default account by
@@ -98,7 +101,7 @@ To test whether constellation is working, do a test private transaction. Example
 eth.sendTransaction({from:eth.accounts[0], privateFor:["o6vTfgeXqQ3Fc4KVFzt9vSYQTHbBjVwIjt5t33xLYjU="]})
 ```
 
-## 7. If something goes wrong..
-First stop all instances by `(sudo) ./stop.sh`. 
-Wipe out chain data and reinitialize simply by `(sudo) ./raft-init.sh`.
+## 8. If something goes wrong..
+First stop all instances by ` ./stop.sh`. 
+Wipe out chain data and reinitialize simply by ` ./3.raft-init.sh`.
 Then do step (4) and (5).
