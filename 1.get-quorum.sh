@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -eu -o pipefail
-
+cd $HOME
 # install build deps
 add-apt-repository ppa:ethereum/ethereum -y
 apt-get update
