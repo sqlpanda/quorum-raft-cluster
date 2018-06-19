@@ -1,6 +1,7 @@
 #!/bin/bash
 set -u
 set -e
+cd $HOME
 CONSTELLATION_KEY_PASSWORD=""
 
 echo "[*] Cleaning up temporary data directories"
@@ -32,5 +33,7 @@ echo "[*] Copy sample genesis file."
 cp $PWD/quorum-raft-cluster/genesis.example.json raft/genesis.json 
 echo "[*] Copy constellation config file."
 cp $PWD/quorum-raft-cluster/tm.conf raft/tm.conf
-echo "[*] You need to manually update genesis.json,static-nodes.json and tm.conf."
+echo "[*] Copy geth default password file."
+cp $PWD/quorum-raft-cluster/passwords.txt raft/passwords.txt
+echo "[*] You need to manually update passwords.txt,genesis.json,static-nodes.json and tm.conf under raft/."
 echo "[*] Done"
