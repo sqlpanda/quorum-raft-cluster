@@ -105,3 +105,9 @@ eth.sendTransaction({from:eth.accounts[0], privateFor:["o6vTfgeXqQ3Fc4KVFzt9vSYQ
 First stop all instances by ` ./stop.sh`. 
 Wipe out chain data and reinitialize simply by ` ./3.raft-init.sh`.
 Then do step (4) and (5).
+
+
+## TO-DO
+ * Incorporate with the testing and cluster from https://github.com/jpmorganchase/quorum-tools
+ * QuorumNetworkManager https://github.com/ConsenSys/QuorumNetworkManager
+ * erc20-rest-service https://github.com/blk-io/erc20-rest-service
