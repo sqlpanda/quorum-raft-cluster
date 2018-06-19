@@ -47,14 +47,20 @@ Note that the order of the enodes in the `static-nodes.json` file need to be the
 ## 3. Init chain with setup files
 ./3.raft-init.sh`
 
-## 4. Start your instances
+## 4. Start constellation
 Before you start the instance, please configure `othernodes` field in your `tm.conf`
 file, which should contain the public ip of all other nodes you want to connect to.
-Then you can run
-./4a.constellation-start.sh`
+Then you can run. This needs to be done on all nodes.
+./4.constellation-start.sh`
+
+
+## 4. Start geth
+
 After inspecting the log and making sure that constellation nodes are properly connected,
-you can start geth node by
-./4b.raft-start.sh`
+you can start geth node by :  
+./5.raft-start.sh`
+
+This step needs to be done by all nodes.
 passwords.txt contains the password for the evm.
 
 ## 5. Add peer using raft dynamic membership (optional)
