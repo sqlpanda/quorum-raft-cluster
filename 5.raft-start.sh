@@ -11,4 +11,4 @@ GLOBAL_ARGS="--raft --rpc --rpcaddr 0.0.0.0 --rpcapi admin,db,eth,debug,miner,ne
 
 
 echo "[*] Starting geth node"
-PRIVATE_CONFIG=tm.conf nohup geth --datadir qdata $GLOBAL_ARGS --rpccorsdomain "*" --rpcport 22000 --port 21000 --raftport 23000 --unlock 0 --password passwords.txt 2>>qdata/logs/geth.log &
+PRIVATE_CONFIG=raft/tm.conf nohup geth --datadir qdata $GLOBAL_ARGS --rpccorsdomain "*" --rpcport 22000 --port 21000 --raftport 23000 --unlock 0 --password raft/passwords.txt 2>>qdata/logs/geth.log &
