@@ -1,5 +1,5 @@
 # Steps
-I have test this runbook on ubuntu-18.04. All dependance has been updated.
+I have test this runbook on ubuntu-18.04 & 16  All dependance has been updated.
 You will need at least 3 hosts. Each host will need to have 4GB Memory.
 
 ## 1. Prepare dependency
@@ -8,7 +8,6 @@ You will need at least 3 hosts. Each host will need to have 4GB Memory.
 
 ## 2. Generate setup files
 `./2.raft-setup.sh`
-Password is stored in password.txt
 
 Before doing step (3), you will need to create genesis file (refer genesis.example.json) and prefund all the account used for smart contract
 by properly configuring `genesis.json`.
@@ -108,6 +107,7 @@ Then do step (4) and (5).
 
 
 ## TO-DO
+ * AWS testing	
  * Incorporate with the testing and cluster from https://github.com/jpmorganchase/quorum-tools
  * QuorumNetworkManager https://github.com/ConsenSys/QuorumNetworkManager
  * erc20-rest-service https://github.com/blk-io/erc20-rest-service
