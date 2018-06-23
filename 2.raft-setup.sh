@@ -12,13 +12,13 @@ mkdir raft
 echo "[*] Generating geth node config"
 nohup geth --datadir raft 2>> raft/setup.log &
 sleep 10
-echo "[\"$(cat raft/setup.log | grep -m 1 -oEi '(enode.*@)')127.0.0.1:21000?discport=0&raftport=23000\"]" >> raft/static-nodes.json
+echo "[\"$(cat raft/setup.log | grep -m 1 -oEi '(enode.*@)')127.0.0.1:21002?discport=0&raftport=21003\"]" >> raft/static-nodes.json
 
 # echo "[*] Creating default ethereum account"
 # geth --datadir raft --password passwords.txt account new
 
 echo "[*] Stopping geth"
-killall  geth
+killall  geth > /dev/null 2>&1 
 
 sleep 5
 echo "[*] Greating new account"
